@@ -1,1 +1,44 @@
-/* You can add global styles to this file, and also import other style files */
+html, body {
+  box-sizing: border-box;
+  margin: 0;
+  border: 0;
+  padding: 0;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+.message-controls {
+  padding-top: 10px;
+}
+
+.message-button {
+  margin: 5px;
+  padding: 10px;
+  background: white;
+  border: 1px solid black;
+  border-radius: 2px;
+  transition: background .25s;
+  width: 152px;
+  display: block;
+  text-align: center;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.message-button--link {
+  width: 130px;
+}
+
+.message-button:hover {
+  background: rgba(225, 225, 225, 0.5);
+}
+
+.message-button[disabled],
+.message-button[disabled]:hover{
+  border: 1px solid #afafaf;
+  color: #afafaf;
+  background: white;
+}
