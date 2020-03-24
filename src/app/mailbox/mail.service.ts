@@ -47,13 +47,13 @@ export class MailService {
       );
   }
 
-  deleteMessage(mailbox: string, id: string) {
+  deleteMessage(mailbox: string, id: string): Observable<MailMessage> {
     const url = `${environment.hostUrl}/${mailbox}/${id}`;
 
     return this.http
       .delete(url)
       .pipe(
-        map(res => res)
+        map(res => res as MailMessage)
       );
   }
 
