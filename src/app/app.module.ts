@@ -1,19 +1,46 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { RouterStateSerializer } from '@ngrx/router-store';
+import { ReactiveFormsModule } from '@angular/forms';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { routerReducer, RouterStateSerializer } from '@ngrx/router-store';
+import { environment } from '../environments/environment';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule, CustomRouterStateSerializer } from './routing';
+import { MailboxComponent, MailboxEffects, mailboxReducer, MailService } from './mailbox';
+
+const reducers = {
+  router: routerReducer,
+  mailbox: mailboxReducer,
+  // messageReader: messageReaderReducer,
+  // messageComposer: messageComposerReducer
+};
+
+const effects = [
+  MailboxEffects,
+  // MessageReaderEffects,
+  // MessageComposerEffects
+];
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MailboxComponent
   ],
   imports: [
+    AppRoutingModule,
     BrowserModule,
-    AppRoutingModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    StoreModule.forRoot(reducers),
+    !environment.production ? StoreDevtoolsModule.instrument() : [],
+    EffectsModule.forRoot(effects),
   ],
   providers: [
+    MailService,
     {provide: RouterStateSerializer, useClass: CustomRouterStateSerializer}
   ],
   bootstrap: [AppComponent]

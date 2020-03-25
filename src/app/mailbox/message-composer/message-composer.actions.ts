@@ -23,4 +23,4 @@ export class MessageSendFailed implements Action {
   constructor(public payload: {message: MailMessage, error: any}) {}
 }
 
-export type Actions = MessageSend | MessageSendSuccess | MessageSendFailed;
+export type MessageComposerActions = MessageSend | MessageSendSuccess | MessageSendFailed;

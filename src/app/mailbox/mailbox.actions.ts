@@ -33,4 +33,4 @@ export class MailboxLoadFailed implements Action {
   constructor(public payload: {mailbox: string, error: any}) {}
 }
 
-export type Actions = InboxLoaded | InboxLoading | OutboxLoaded | OutboxLoading | MailboxLoadFailed;
+export type MailboxActions = InboxLoaded | InboxLoading | OutboxLoaded | OutboxLoading | MailboxLoadFailed;

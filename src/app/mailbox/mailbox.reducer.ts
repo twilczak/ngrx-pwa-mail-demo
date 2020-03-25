@@ -24,7 +24,7 @@ const initialState: State = {
   }
 };
 
-export function mailboxReducer(state = initialState, action: mailbox.Actions | messageReader.Actions | messageComposer.Actions): State {
+export function mailboxReducer(state = initialState, action: mailbox.MailboxActions | messageReader.MessageReaderActions | messageComposer.MessageComposerActions): State {
 
   switch (action.type) {
     case mailbox.INBOX_LOADED: {

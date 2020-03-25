@@ -1,0 +1,78 @@
+.mailbox {
+    display: grid;
+    grid-template-columns: 160px auto;
+    padding: 10px;
+}
+
+.mailbox-list {
+    margin: 0;
+    padding: 0 10px;
+    list-style-type: none;
+    list-style-position: inside;
+    max-height: 205px;
+    overflow-y: auto;
+    border-bottom: 1px solid black;
+    border-bottom-right-radius: 2px;
+}
+
+.mailbox-list-item,
+.mailbox-list-header {
+    display: block;
+    padding: 0 5px;
+}
+
+.mailbox-list-header {
+    font-weight: 600;
+}
+
+.mailbox-list-item {
+    transition: background .25s;
+
+    &:last-child {
+        margin-bottom: 10px;
+    }
+
+    &:hover {
+        background: rgba(225, 225, 225, 0.5);
+    }
+
+    &.is-selected {
+        color: dodgerblue;
+    }
+}
+
+.mailbox-item-link {
+    display: block;
+    text-decoration: none;
+    cursor: pointer;
+
+    &.is-active {
+        color: dodgerblue;
+    }
+}
+
+.mailbox-list-item,
+.mailbox-list-header {
+    & .date-sent,
+    & .recipient,
+    & .sender,
+    & .subject {
+        display: inline-block;
+        padding: 5px;
+    }
+
+    & .date-sent {
+        width: 15%;
+    }
+
+    & .recipient,
+    & .sender {
+        border-right: 1px solid black;
+        width: 24%;
+    }
+
+    & .subject {
+        width: 50%;
+        border-right: 1px solid black;
+    }
+}
