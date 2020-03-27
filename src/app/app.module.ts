@@ -4,13 +4,13 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { routerReducer, RouterStateSerializer } from '@ngrx/router-store';
+import { routerReducer, RouterStateSerializer, StoreRouterConnectingModule } from '@ngrx/router-store';
 import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule, CustomRouterStateSerializer } from './routing';
-import { MailboxComponent, MailboxEffects, mailboxReducer, MailService } from './mailbox';
+import { MailboxComponent, MailboxControlsComponent, MailboxEffects, mailboxReducer, MailService } from './mailbox';
 
 const reducers = {
   router: routerReducer,
@@ -28,7 +28,8 @@ const effects = [
 @NgModule({
   declarations: [
     AppComponent,
-    MailboxComponent
+    MailboxComponent,
+    MailboxControlsComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -38,6 +39,7 @@ const effects = [
     StoreModule.forRoot(reducers),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     EffectsModule.forRoot(effects),
+    StoreRouterConnectingModule.forRoot(),
   ],
   providers: [
     MailService,
