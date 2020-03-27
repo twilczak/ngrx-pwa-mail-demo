@@ -1,5 +1,5 @@
 import * as mailbox from './mailbox.actions';
-import * as messageReader from './messsage-reader/message-reader.actions';
+import * as messageReader from './message-reader/message-reader.actions';
 import * as messageComposer from './message-composer/message-composer.actions';
 import { MailMessage } from './mail-message';
 
@@ -24,7 +24,9 @@ const initialState: State = {
   }
 };
 
-export function mailboxReducer(state = initialState, action: mailbox.MailboxActions | messageReader.MessageReaderActions | messageComposer.MessageComposerActions): State {
+export function mailboxReducer(state = initialState,
+                               action: mailbox.MailboxActions | messageReader.MessageReaderActions | messageComposer.MessageComposerActions)
+  : State {
 
   switch (action.type) {
     case mailbox.INBOX_LOADED: {

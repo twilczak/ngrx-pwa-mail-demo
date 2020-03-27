@@ -44,4 +44,5 @@ export class MessageLoadFailed implements Action {
   constructor(public payload: {messageId: string, error: any}) {}
 }
 
-export type MessageReaderActions = MessageLoading | MessageLoaded | MessageDeleting | MessageDeleted | MessageDeleteFailed | MessageLoadFailed;
+export type MessageReaderActions = MessageLoading | MessageLoaded | MessageDeleting | MessageDeleted | MessageDeleteFailed |
+  MessageLoadFailed;

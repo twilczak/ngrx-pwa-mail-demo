@@ -10,18 +10,21 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule, CustomRouterStateSerializer } from './routing';
-import { MailboxComponent, MailboxControlsComponent, MailboxEffects, mailboxReducer, MailService } from './mailbox';
+import { MailboxComponent, MailboxEffects, mailboxReducer, MailService } from './mailbox';
+import { MailboxControlsComponent } from './mailbox/mailbox-controls';
+import { MessageReaderComponent, MessageReaderContainerComponent, messageReaderReducer,
+  MessageReaderEffects } from './mailbox/message-reader';
 
 const reducers = {
   router: routerReducer,
   mailbox: mailboxReducer,
-  // messageReader: messageReaderReducer,
+  messageReader: messageReaderReducer,
   // messageComposer: messageComposerReducer
 };
 
 const effects = [
   MailboxEffects,
-  // MessageReaderEffects,
+  MessageReaderEffects,
   // MessageComposerEffects
 ];
 
@@ -30,6 +33,8 @@ const effects = [
     AppComponent,
     MailboxComponent,
     MailboxControlsComponent,
+    MessageReaderComponent,
+    MessageReaderContainerComponent
   ],
   imports: [
     AppRoutingModule,

@@ -6,7 +6,7 @@ import { Actions, Effect, ofType } from '@ngrx/effects';
 import { ROUTER_NAVIGATION, RouterNavigationAction } from '@ngrx/router-store';
 
 import { MailService } from './mail.service';
-import { MESSAGE_DELETED, MessageDeleted } from './messsage-reader/message-reader.actions';
+import { MESSAGE_DELETED, MessageDeleted } from './message-reader/message-reader.actions';
 import { INBOX_LOADING, InboxLoaded, MAILBOX_LOAD_FAILED, MailboxLoadFailed, OUTBOX_LOADING, OutboxLoaded } from './mailbox.actions';
 
 @Injectable()

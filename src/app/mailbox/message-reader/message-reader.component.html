@@ -1,0 +1,11 @@
+<div class="message-controls" *ngIf="message">
+  <button class="message-button" (click)="deleteMessage.emit(message)">Delete</button>
+  <button class="message-button" disabled="disabled">Reply</button>
+</div>
+<div class="message-reader" *ngIf="message">
+  <div class="recipient"><span class="label">To:</span> {{message.recipient}}</div>
+  <div class="sender"><span class="label">From:</span> {{message.sender}} </div>
+  <div class="date-sent"><span class="label">Sent:</span> {{message.dateSent}} </div>
+  <div class="subject"><span class="label">Subject:</span> {{message.subject}}</div>
+  <div class="body">{{message.body}}</div>
+</div>
