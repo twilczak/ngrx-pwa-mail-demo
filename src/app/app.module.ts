@@ -12,6 +12,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule, CustomRouterStateSerializer } from './routing';
 import { MailboxComponent, MailboxEffects, mailboxReducer, MailService } from './mailbox';
 import { MailboxControlsComponent } from './mailbox/mailbox-controls';
+import { MessageComposerComponent, MessageComposerEffects, messageComposerReducer } from './mailbox/message-composer';
 import { MessageReaderComponent, MessageReaderContainerComponent, messageReaderReducer,
   MessageReaderEffects } from './mailbox/message-reader';
 
@@ -19,13 +20,13 @@ const reducers = {
   router: routerReducer,
   mailbox: mailboxReducer,
   messageReader: messageReaderReducer,
-  // messageComposer: messageComposerReducer
+  messageComposer: messageComposerReducer
 };
 
 const effects = [
   MailboxEffects,
   MessageReaderEffects,
-  // MessageComposerEffects
+  MessageComposerEffects
 ];
 
 @NgModule({
@@ -33,6 +34,7 @@ const effects = [
     AppComponent,
     MailboxComponent,
     MailboxControlsComponent,
+    MessageComposerComponent,
     MessageReaderComponent,
     MessageReaderContainerComponent
   ],

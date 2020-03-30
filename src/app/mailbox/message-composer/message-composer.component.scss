@@ -1,0 +1,29 @@
+:host {
+  grid-column: 1 / 3;
+  display: grid;
+  grid-template-columns: inherit;
+}
+
+.message-composer {
+  padding: 10px 15px;
+}
+
+.composer-input {
+  display: block;
+  padding: 5px;
+  font-size: 16px;
+  font-family: inherit;
+  border-bottom: 1px solid black;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  width: 100%;
+
+  &.ng-dirty.ng-touched.ng-invalid {
+    border-bottom-color: red;
+  }
+
+  &.ng-dirty.ng-touched.ng-invalid::-webkit-input-placeholder {
+    color: rgba(255, 0, 0, 0.6);
+  }
+}

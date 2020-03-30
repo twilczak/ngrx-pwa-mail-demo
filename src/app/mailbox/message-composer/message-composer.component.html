@@ -1,0 +1,9 @@
+<div class="message-controls">
+    <a id="cancelLink" class="message-button message-button--link" routerLink="..">Cancel</a>
+    <button id="send" class="message-button" (click)="send()" [disabled]="sendDisabled()">Send</button>
+</div>
+<form class="message-composer" [formGroup]="messageForm" novalidate>
+    <input class="composer-input" placeholder="recipient" type="text" formControlName="recipient"/>
+    <input class="composer-input" placeholder="subject" type="text" formControlName="subject"/>
+    <textarea class="composer-input" placeholder="body" rows="10" formControlName="body"></textarea>
+</form>
